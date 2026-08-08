@@ -1,0 +1,12 @@
+media > lua > client > PFG > include_my_type.lua
+
+PFGMenu.typesTable["MY_TYPE"]=true
+
+
+on mod.info
+b42:
+require=\2926995676/PFG_only
+
+b41:
+require=PFG_only
+

@@ -1,0 +1,16 @@
+module Base
+{
+
+	model carretilla_model
+	{
+		mesh = WoodenWheelbarrow_3d,
+		texture = models_x_texture/woodenwheelbarrow_texture,
+		scale = 1,
+	}
+	model carretilla_world
+	{
+		mesh = WoodenWheelbarrow_World,
+		texture = models_x_texture/woodenwheelbarrow_texture,
+		scale = 1,
+	}
+}

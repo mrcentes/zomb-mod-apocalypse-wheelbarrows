@@ -1,0 +1,6 @@
+Forward: -Z Forward
+Up: Y Up
+
+x -90
+y 0
+z 0
