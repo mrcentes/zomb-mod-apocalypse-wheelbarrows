@@ -2,14 +2,33 @@ require "TimedActions/ISBaseTimedAction"
 
 PFGPushAction = ISBaseTimedAction:derive("PFGPushAction")
 
-function PFGPushAction.isValid(args)
-	
-	for i,v in ipairs(PFGMenu.typesTable) do
-		if args["character"]:getInventory():contains(tostring(v)) then
-			return false
+local function inventoryHasWheelbarrow(inventory)
+	if not inventory or not inventory.getItems then
+		return false
+	end
+
+	local items = inventory:getItems()
+	if not items then
+		return false
+	end
+
+	for index = 0, items:size() - 1 do
+		local item = items:get(index)
+		if item and item.getType and PFGMenu.typesTable[item:getType()] then
+			return true
 		end
 	end
-	return true
+
+	return false
+end
+
+function PFGPushAction.isValid(args)
+	local character = args and args["character"]
+	if not character then
+		return false
+	end
+
+	return not inventoryHasWheelbarrow(character:getInventory())
 end
 
 function PFGPushAction:waitToStart()

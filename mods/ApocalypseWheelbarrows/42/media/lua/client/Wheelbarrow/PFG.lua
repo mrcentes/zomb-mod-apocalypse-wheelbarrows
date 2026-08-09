@@ -79,8 +79,6 @@ PFGMenu.addWorldContext = function(player, context, worldobjects, test)
 	addItemsFromSquare(origSq:getW())
 	addItemsFromSquare(origSq:getE())
 
-	-- Convert back to array for iteration
-	local items = {}
 	for item, _ in pairs(itemsSet) do
 		local curr_cart = item.getItem and item:getItem()
 		if curr_cart then
@@ -91,7 +89,6 @@ PFGMenu.addWorldContext = function(player, context, worldobjects, test)
 				local selectOption = context:addOption(label,worldobjects,PFGMenu.equipCart,player,item)
 			end
 		end
-		--table.insert(items, item)
 	end
 
 	-- local carts = {}
@@ -221,16 +218,16 @@ PFGMenu.addInventoryContext = function(player,context,inventoryObjects)
 		if v.cat == "Container" then
 			--context:addOption("edit capacity", v.items[i], PFGMenu.onEditBag,player) --edit capacity
 			--dont show push inside player inventory
-			if playerInventory:contains(v.items[i]) then return end
+			if not playerInventory:contains(v.items[i]) then
 				
-			if i and v and v.items and v.items[i] and v.items[i].getItemContainer then              
-                local itemClicked = v.items[i]:getItemContainer()
-                
-                local curr_type = itemClicked:getType()
-				if PFGMenu.typesTable[curr_type] then
-					local selectOption = context:addOption(PFGMenu.getTextOrDefault("IGUI_Wheelbarrow_Push", "Push") .. " " .. v.items[i]:getDisplayName() ,v.items,PFGMenu.pushCart,player,v.items[i],v)
-				end
-            end
+				if i and v and v.items and v.items[i] and v.items[i].getItemContainer then
+                	local itemClicked = v.items[i]:getItemContainer()
+                	local curr_type = itemClicked:getType()
+					if PFGMenu.typesTable[curr_type] then
+						context:addOption(PFGMenu.getTextOrDefault("IGUI_Wheelbarrow_Push", "Push") .. " " .. v.items[i]:getDisplayName() ,v.items,PFGMenu.pushCart,player,v.items[i],v)
+					end
+            	end
+			end
 		end
 	end
 	

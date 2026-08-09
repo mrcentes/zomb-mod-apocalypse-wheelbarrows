@@ -1,0 +1,87 @@
+[h1]Apocalypse Wheelbarrows[/h1]
+
+A focused Build 42.20 maintenance and enhancement pass for Wheelbarrow from Hydrocraft v2.
+
+This mod keeps the spirit of the original wheelbarrow mod intact while making it usable and stable in current Build 42 play.
+
+[h2]What This Mod Does[/h2]
+
+[list]
+[*]Fixes the equipped-drop crash path in Build 42
+[*]Adds three wheelbarrow variants: Wooden, Reinforced, and Metal
+[*]Adds per-variant leverage settings in Mod Options
+[*]Adds Build 42 JSON localization support
+[*]Keeps the wheelbarrow useful without fighting the current Build 42 container cap behavior
+[/list]
+
+[h2]Why Leverage Instead Of Huge Capacity[/h2]
+
+Build 42 appears to clamp bag-style containers in ways that make old high-capacity wheelbarrow behavior unreliable. In testing, the container could briefly display a higher value, then still behave like it had a much lower effective limit.
+
+Instead of pretending that cap is gone, this mod takes a more reliable approach:
+
+[list]
+[*]The wheelbarrow remains a normal container
+[*]Items inside it have their live weight reduced
+[*]When items leave the wheelbarrow, their original weight is restored
+[*]Each wheelbarrow type has its own configurable leverage value
+[/list]
+
+The result is a wheelbarrow that still feels powerful and practical, but behaves consistently in Build 42.
+
+[h2]Wheelbarrow Types[/h2]
+
+[list]
+[*][b]Wooden Wheelbarrow[/b] - baseline version
+[*][b]Reinforced Wheelbarrow[/b] - stronger mid-tier version
+[*][b]Metal Wheelbarrow[/b] - strongest version
+[/list]
+
+[h2]Default Leverage Settings[/h2]
+
+[list]
+[*]Wooden: 4x
+[*]Reinforced: 6x
+[*]Metal: 8x
+[/list]
+
+Higher values mean more mechanical advantage.
+
+[h2]Compatibility Notes[/h2]
+
+[list]
+[*]Built for [b]Project Zomboid Build 42.20[/b]
+[*]This is a [b]Build 42-only[/b] package
+[*]Mod ID: [code]ApocalypseWheelbarrows[/code]
+[/list]
+
+[h2]Credit To The Original Mod[/h2]
+
+This mod exists because the original Wheelbarrow mod is excellent.
+
+Massive credit to the original author of Wheelbarrow from Hydrocraft v2:
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676]Original Steam Workshop page[/url]
+
+The goal here is not to replace that work or take credit for the underlying idea. The goal is to keep it alive and usable in Build 42 with a smaller, focused maintenance pass.
+
+If the original author reaches out and asks for this derivative fix pack to be taken down, I will take it down.
+
+[h2]Help Wanted[/h2]
+
+The current mod is functional and playable, but I would love help from someone stronger on the Blender / Project Zomboid model pipeline side.
+
+If you want to help improve:
+
+[list]
+[*]wheelbarrow models
+[*]held/equipped presentation
+[*]textures and materials
+[*]variant-specific visual detail
+[/list]
+
+please reach out.
+
+[h2]Summary[/h2]
+
+If you liked the original wheelbarrow mod and just want it working cleanly in Build 42, this is that mod's practical continuation.

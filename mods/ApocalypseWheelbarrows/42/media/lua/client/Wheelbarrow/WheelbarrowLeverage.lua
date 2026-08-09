@@ -14,20 +14,14 @@ WheelbarrowLeverage._warnedAboutMissingModOptions = WheelbarrowLeverage._warnedA
 WheelbarrowLeverage.VARIANTS = {
     WheelbarrowWood = {
         optionKey = "wood_advantage",
-        optionLabel = "Wooden Wheelbarrow Advantage",
-        description = "Wooden wheelbarrow leverage multiplier.",
         defaultAdvantage = 4,
     },
     WheelbarrowMixed = {
         optionKey = "mixed_advantage",
-        optionLabel = "Reinforced Wheelbarrow Advantage",
-        description = "Reinforced wheelbarrow leverage multiplier.",
         defaultAdvantage = 6,
     },
     WheelbarrowMetal = {
         optionKey = "metal_advantage",
-        optionLabel = "Metal Wheelbarrow Advantage",
-        description = "Metal wheelbarrow leverage multiplier.",
         defaultAdvantage = 8,
     },
 }
@@ -84,12 +78,12 @@ function WheelbarrowLeverage.init()
         local variant = WheelbarrowLeverage.VARIANTS[typeName]
         options:addSlider(
             variant.optionKey,
-            getTextOrDefault("IGUI_Wheelbarrow_Option_" .. variant.optionKey, variant.optionLabel),
+            WheelbarrowLeverage.getOptionLabel(typeName),
             WheelbarrowLeverage.MIN_ADVANTAGE,
             WheelbarrowLeverage.MAX_ADVANTAGE,
             1,
             variant.defaultAdvantage,
-            getTextOrDefault("IGUI_Wheelbarrow_OptionDesc_" .. variant.optionKey, variant.description)
+            WheelbarrowLeverage.getOptionDescription(typeName)
         )
     end
     PZAPI.ModOptions:load()
@@ -109,6 +103,34 @@ function WheelbarrowLeverage.getVariant(target)
         return nil
     end
     return WheelbarrowLeverage.VARIANTS[typeName]
+end
+
+function WheelbarrowLeverage.getOptionLabel(typeName)
+    local labels = {
+        WheelbarrowWood = "Wooden Wheelbarrow Advantage",
+        WheelbarrowMixed = "Reinforced Wheelbarrow Advantage",
+        WheelbarrowMetal = "Metal Wheelbarrow Advantage",
+    }
+    local variant = WheelbarrowLeverage.VARIANTS[typeName]
+    local fallback = labels[typeName] or "Wheelbarrow Advantage"
+    if not variant then
+        return fallback
+    end
+    return getTextOrDefault("IGUI_Wheelbarrow_Option_" .. variant.optionKey, fallback)
+end
+
+function WheelbarrowLeverage.getOptionDescription(typeName)
+    local descriptions = {
+        WheelbarrowWood = "Wooden wheelbarrow leverage multiplier.",
+        WheelbarrowMixed = "Reinforced wheelbarrow leverage multiplier.",
+        WheelbarrowMetal = "Metal wheelbarrow leverage multiplier.",
+    }
+    local variant = WheelbarrowLeverage.VARIANTS[typeName]
+    local fallback = descriptions[typeName] or "Wheelbarrow leverage multiplier."
+    if not variant then
+        return fallback
+    end
+    return getTextOrDefault("IGUI_Wheelbarrow_OptionDesc_" .. variant.optionKey, fallback)
 end
 
 function WheelbarrowLeverage.getDefaultAdvantage(target)
