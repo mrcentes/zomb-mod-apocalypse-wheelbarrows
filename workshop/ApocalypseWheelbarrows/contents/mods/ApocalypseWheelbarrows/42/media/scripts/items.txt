@@ -1,0 +1,113 @@
+module Wheelbarrow
+{
+    item WheelbarrowWood
+    {
+        WeightReduction             = 0,
+        Weight                      = 8,
+        ItemType                    = base:Container,
+        Capacity                    = 50, /* hard coded b42 50 bags, 1000 vehicle */
+        DisplayName                 = Wheelbarrow.WheelbarrowWood,
+        Icon                        = wheelbarrow_wood,
+		DisplayCategory	            = Container,
+        RequiresEquippedBothHands   = true,
+		StaticModel         	= wheelbarrow_wood_model,
+		WorldStaticModel 		= wheelbarrow_wood_world,
+		ReplaceInPrimaryHand         = models_x_wheelbarrow_wood holdingbagboth_cart,
+    }
+
+    item WheelbarrowMixed
+    {
+        WeightReduction             = 0,
+        Weight                      = 9,
+        ItemType                    = base:Container,
+        Capacity                    = 50, /* hard coded b42 50 bags, 1000 vehicle */
+        DisplayName                 = Wheelbarrow.WheelbarrowMixed,
+        Icon                        = wheelbarrow_mixed,
+		DisplayCategory	            = Container,
+        RequiresEquippedBothHands   = true,
+		StaticModel         	= wheelbarrow_mixed_model,
+		WorldStaticModel 		= wheelbarrow_mixed_world,
+		ReplaceInPrimaryHand         = models_x_wheelbarrow_mixed holdingbagboth_cart,
+    }
+
+    item WheelbarrowMetal
+    {
+        WeightReduction             = 0,
+        Weight                      = 10,
+        ItemType                    = base:Container,
+        Capacity                    = 50, /* hard coded b42 50 bags, 1000 vehicle */
+        DisplayName                 = Wheelbarrow.WheelbarrowMetal,
+        Icon                        = wheelbarrow_metal,
+		DisplayCategory	            = Container,
+        RequiresEquippedBothHands   = true,
+		StaticModel         	= wheelbarrow_metal_model,
+		WorldStaticModel 		= wheelbarrow_metal_world,
+		ReplaceInPrimaryHand         = models_x_wheelbarrow_metal holdingbagboth_cart,
+    }
+
+    craftRecipe craft_wheelbarrow_wood
+    {
+        timedAction   = SawLogs,
+        time          = 200,
+        tags          = InHandCraft;CanBeDoneInDark;Carpentry,
+        category      = Carpentry,
+        xpAward       = Woodwork:0,
+        SkillRequired = Woodwork:2/*;Mechanics:1*/,
+        inputs
+        {
+            item 1 tags[Hammer;ClubHammer] mode:keep flags[MayDegradeLight],
+            item 1 tags[Saw] mode:keep flags[MayDegradeLight;Prop1],
+            item 4 [Base.Plank] flags[Prop2],
+            item 4 [Base.Nails;Base.RippedSheetsDirty;Base.Twine;Base.Rope;Base.SheetRope] flags[DontReplace],
+        }
+        outputs
+        {
+            item 1 Wheelbarrow.WheelbarrowWood,
+        }
+    }
+
+    craftRecipe craft_wheelbarrow_mixed
+    {
+        timedAction   = SawLogs,
+        time          = 300,
+        tags          = InHandCraft;CanBeDoneInDark;Carpentry,
+        category      = Carpentry,
+        xpAward       = Woodwork:0,
+        SkillRequired = Woodwork:4;MetalWelding:1,
+        inputs
+        {
+            item 1 tags[Hammer;ClubHammer] mode:keep flags[MayDegradeLight],
+            item 1 tags[Saw] mode:keep flags[MayDegradeLight;Prop1],
+            item 1 [Wheelbarrow.WheelbarrowWood] flags[Prop2],
+            item 2 [Base.SheetMetal;Base.MetalPipe;Base.MetalBar] flags[DontReplace],
+            item 2 [Base.Nails;Base.Screws] flags[DontReplace],
+        }
+        outputs
+        {
+            item 1 Wheelbarrow.WheelbarrowMixed,
+        }
+    }
+
+    craftRecipe craft_wheelbarrow_metal
+    {
+        timedAction   = SawLogs,
+        time          = 400,
+        tags          = InHandCraft;CanBeDoneInDark;Carpentry,
+        category      = Carpentry,
+        xpAward       = Woodwork:0,
+        SkillRequired = Woodwork:5;MetalWelding:3,
+        inputs
+        {
+            item 1 [Base.BlowTorch] mode:keep flags[MayDegradeLight],
+            item 1 tags[WeldingMask] mode:keep,
+            item 1 [Wheelbarrow.WheelbarrowMixed] flags[Prop1],
+            item 4 [Base.SheetMetal;Base.SmallSheetMetal] flags[DontReplace],
+            item 2 [Base.MetalPipe;Base.MetalBar] flags[DontReplace],
+            item 2 [Base.Screws;Base.Nails] flags[DontReplace],
+        }
+        outputs
+        {
+            item 1 Wheelbarrow.WheelbarrowMetal,
+        }
+    }
+}

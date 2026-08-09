@@ -1,27 +1,25 @@
-pcall(require, "PZAPI/ModOptions")
 require "Wheelbarrow/WheelbarrowLogger"
 
 WheelbarrowLeverage = WheelbarrowLeverage or {}
 
-WheelbarrowLeverage.MOD_OPTIONS_ID = "WheelbarrowLeverage"
+WheelbarrowLeverage.SANDBOX_NAMESPACE = "ApocalypseWheelbarrows"
 WheelbarrowLeverage.MIN_ADVANTAGE = 1
 WheelbarrowLeverage.MAX_ADVANTAGE = 10
 WheelbarrowLeverage.ORIGINAL_WEIGHT_KEY = "wb_originalWeight"
 WheelbarrowLeverage.ADJUSTED_KEY = "wb_weightAdjusted"
 WheelbarrowLeverage._registeredEvents = WheelbarrowLeverage._registeredEvents or false
 WheelbarrowLeverage._loggedConfig = WheelbarrowLeverage._loggedConfig or false
-WheelbarrowLeverage._warnedAboutMissingModOptions = WheelbarrowLeverage._warnedAboutMissingModOptions or false
 WheelbarrowLeverage.VARIANTS = {
     WheelbarrowWood = {
-        optionKey = "wood_advantage",
+        optionKey = "WoodAdvantage",
         defaultAdvantage = 4,
     },
     WheelbarrowMixed = {
-        optionKey = "mixed_advantage",
+        optionKey = "ReinforcedAdvantage",
         defaultAdvantage = 6,
     },
     WheelbarrowMetal = {
-        optionKey = "metal_advantage",
+        optionKey = "MetalAdvantage",
         defaultAdvantage = 8,
     },
 }
@@ -54,40 +52,22 @@ local function getTextOrDefault(key, fallback)
     return fallback
 end
 
-function WheelbarrowLeverage.init()
-    if not PZAPI or not PZAPI.ModOptions then
-        if not WheelbarrowLeverage._warnedAboutMissingModOptions then
-            WheelbarrowLogger.warn("PZAPI ModOptions not found; using default wheelbarrow leverage settings")
-            WheelbarrowLeverage._warnedAboutMissingModOptions = true
-        end
+function WheelbarrowLeverage.getSandboxNamespace()
+    return SandboxVars and SandboxVars[WheelbarrowLeverage.SANDBOX_NAMESPACE] or nil
+end
+
+function WheelbarrowLeverage.getSandboxAdvantage(typeName)
+    local variant = WheelbarrowLeverage.VARIANTS[typeName]
+    if not variant then
         return nil
     end
 
-    local options = PZAPI.ModOptions:getOptions(WheelbarrowLeverage.MOD_OPTIONS_ID)
-    if options then
-        return options
+    local sandboxNamespace = WheelbarrowLeverage.getSandboxNamespace()
+    if not sandboxNamespace then
+        return nil
     end
 
-    options = PZAPI.ModOptions:create(
-        WheelbarrowLeverage.MOD_OPTIONS_ID,
-        getTextOrDefault("IGUI_Wheelbarrow_Options_Title", "Wheelbarrow Leverage")
-    )
-    options:addTitle(getTextOrDefault("IGUI_Wheelbarrow_Options_Title", "Wheelbarrow Leverage"))
-    options:addDescription(getTextOrDefault("IGUI_Wheelbarrow_Options_Description", "Items in each wheelbarrow variant count as 1/N of their normal weight."))
-    for _, typeName in ipairs(WheelbarrowLeverage.VARIANT_ORDER) do
-        local variant = WheelbarrowLeverage.VARIANTS[typeName]
-        options:addSlider(
-            variant.optionKey,
-            WheelbarrowLeverage.getOptionLabel(typeName),
-            WheelbarrowLeverage.MIN_ADVANTAGE,
-            WheelbarrowLeverage.MAX_ADVANTAGE,
-            1,
-            variant.defaultAdvantage,
-            WheelbarrowLeverage.getOptionDescription(typeName)
-        )
-    end
-    PZAPI.ModOptions:load()
-    return options
+    return sandboxNamespace[variant.optionKey]
 end
 
 function WheelbarrowLeverage.getTypeName(target)
@@ -116,7 +96,7 @@ function WheelbarrowLeverage.getOptionLabel(typeName)
     if not variant then
         return fallback
     end
-    return getTextOrDefault("IGUI_Wheelbarrow_Option_" .. variant.optionKey, fallback)
+    return getTextOrDefault("Sandbox_" .. WheelbarrowLeverage.SANDBOX_NAMESPACE .. "_" .. variant.optionKey, fallback)
 end
 
 function WheelbarrowLeverage.getOptionDescription(typeName)
@@ -130,7 +110,7 @@ function WheelbarrowLeverage.getOptionDescription(typeName)
     if not variant then
         return fallback
     end
-    return getTextOrDefault("IGUI_Wheelbarrow_OptionDesc_" .. variant.optionKey, fallback)
+    return getTextOrDefault("Sandbox_" .. WheelbarrowLeverage.SANDBOX_NAMESPACE .. "_" .. variant.optionKey .. "_tooltip", fallback)
 end
 
 function WheelbarrowLeverage.getDefaultAdvantage(target)
@@ -142,14 +122,14 @@ function WheelbarrowLeverage.getDefaultAdvantage(target)
 end
 
 function WheelbarrowLeverage.getAdvantage(target)
-    local variant = WheelbarrowLeverage.getVariant(target)
+    local typeName = WheelbarrowLeverage.getTypeName(target)
+    local variant = typeName and WheelbarrowLeverage.VARIANTS[typeName] or nil
     if not variant then
         return WheelbarrowLeverage.getDefaultAdvantage(target)
     end
 
-    local options = WheelbarrowLeverage.init()
-    local option = options and options:getOption(variant.optionKey)
-    local configuredValue = option and option:getValue() or variant.defaultAdvantage
+    local configuredValue = WheelbarrowLeverage.getSandboxAdvantage(typeName)
+
     local numericValue = math.floor(toNumber(configuredValue, variant.defaultAdvantage))
     if numericValue < WheelbarrowLeverage.MIN_ADVANTAGE then
         return WheelbarrowLeverage.MIN_ADVANTAGE
@@ -165,6 +145,8 @@ function WheelbarrowLeverage.logConfiguration()
         return
     end
 
+    local source = WheelbarrowLeverage.getSandboxNamespace() ~= nil and "sandbox settings" or "lua defaults"
+    WheelbarrowLogger.info("Leverage configuration source: " .. source)
     for _, typeName in ipairs(WheelbarrowLeverage.VARIANT_ORDER) do
         WheelbarrowLogger.info(typeName .. " leverage active: " .. tostring(WheelbarrowLeverage.getAdvantage({ getType = function() return typeName end })) .. "x")
     end
@@ -245,6 +227,20 @@ function WheelbarrowLeverage.restoreSnapshot(item, snapshot)
     modData[WheelbarrowLeverage.ADJUSTED_KEY] = snapshot.adjusted
 end
 
+function WheelbarrowLeverage.syncItemModData(item)
+    if not item or not item.transmitModData then
+        return
+    end
+
+    local ok, err = pcall(function()
+        item:transmitModData()
+    end)
+
+    if not ok then
+        WheelbarrowLogger.debug("Failed to transmit wheelbarrow item modData: " .. tostring(err))
+    end
+end
+
 function WheelbarrowLeverage.applyProjectedValidationWeight(item, srcContainer, destContainer)
     if not item then
         return
@@ -274,6 +270,7 @@ function WheelbarrowLeverage.markAdjusted(item, originalWeight)
     modData[WheelbarrowLeverage.ORIGINAL_WEIGHT_KEY] = baseWeight
     modData[WheelbarrowLeverage.ADJUSTED_KEY] = true
     WheelbarrowLeverage.setLiveWeight(item, WheelbarrowLeverage.getReducedWeightForTarget(baseWeight, item))
+    WheelbarrowLeverage.syncItemModData(item)
     WheelbarrowLogger.debug("Adjusted " .. tostring(safeCall(item, "getFullType") or safeCall(item, "getType")) .. " from " .. tostring(baseWeight) .. " to " .. tostring(WheelbarrowLeverage.getCurrentWeight(item)))
 end
 
@@ -289,6 +286,7 @@ function WheelbarrowLeverage.clearAdjusted(item)
     end
     modData[WheelbarrowLeverage.ORIGINAL_WEIGHT_KEY] = nil
     modData[WheelbarrowLeverage.ADJUSTED_KEY] = nil
+    WheelbarrowLeverage.syncItemModData(item)
     WheelbarrowLogger.debug("Restored " .. tostring(safeCall(item, "getFullType") or safeCall(item, "getType")) .. " to " .. tostring(WheelbarrowLeverage.getCurrentWeight(item)))
 end
 
@@ -346,12 +344,21 @@ function WheelbarrowLeverage.repairLocalPlayer(playerIndex)
     WheelbarrowLeverage.visitContainerItems(playerObj:getInventory())
 end
 
-WheelbarrowLeverage.init()
-
 if not WheelbarrowLeverage._registeredEvents then
-    Events.OnGameStart.Add(function()
-        WheelbarrowLeverage.logConfiguration()
-        WheelbarrowLeverage.repairLocalPlayer(0)
-    end)
+    if Events.OnGameStart then
+        Events.OnGameStart.Add(function()
+            WheelbarrowLeverage.logConfiguration()
+            if not isServer() then
+                WheelbarrowLeverage.repairLocalPlayer(0)
+            end
+        end)
+    end
+
+    if isServer() and Events.OnInitGlobalModData then
+        Events.OnInitGlobalModData.Add(function()
+            WheelbarrowLeverage.logConfiguration()
+        end)
+    end
+
     WheelbarrowLeverage._registeredEvents = true
 end

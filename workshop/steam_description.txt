@@ -1,16 +1,14 @@
 [h1]Apocalypse Wheelbarrows[/h1]
 
-A focused Build 42.20 maintenance and enhancement pass for Wheelbarrow from Hydrocraft v2.
-
-This mod keeps the spirit of the original wheelbarrow mod intact while making it usable and stable in current Build 42 play.
+A focused Build 42.20 maintenance and enhancement pass for Wheelbarrow from Hydrocraft v2. This mod keeps the spirit of the original wheelbarrow mod intact while making it usable and stable in current Build 42 play.
 
 [h2]What This Mod Does[/h2]
 
 [list]
 [*]Fixes the equipped-drop crash path in Build 42
 [*]Adds three wheelbarrow variants: Wooden, Reinforced, and Metal
-[*]Adds per-variant leverage settings in Mod Options
-[*]Adds Build 42 JSON localization support
+[*]Adds per-variant leverage settings for both single-player and multiplayer servers
+[*]Adds Build 42 JSON localization support (contribute here)
 [*]Keeps the wheelbarrow useful without fighting the current Build 42 container cap behavior
 [/list]
 
@@ -37,7 +35,7 @@ The result is a wheelbarrow that still feels powerful and practical, but behaves
 [*][b]Metal Wheelbarrow[/b] - strongest version
 [/list]
 
-[h2]Default Leverage Settings[/h2]
+[h2]Settings[/h2]
 
 [list]
 [*]Wooden: 4x
@@ -46,6 +44,12 @@ The result is a wheelbarrow that still feels powerful and practical, but behaves
 [/list]
 
 Higher values mean more mechanical advantage.
+
+[b]Single Player:[/b]
+Set these in the sandbox settings for your save.
+
+[b]Multiplayer:[/b]
+Set these in the server sandbox settings. The server values are authoritative for multiplayer.
 
 [h2]Compatibility Notes[/h2]
 
@@ -59,13 +63,11 @@ Higher values mean more mechanical advantage.
 
 This mod exists because the original Wheelbarrow mod is excellent.
 
-Massive credit to the original author of Wheelbarrow from Hydrocraft v2:
-
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676]Original Steam Workshop page[/url]
+Massive credit to the original author of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676]Wheelbarrow from Hydrocraft v2[/url].
 
 The goal here is not to replace that work or take credit for the underlying idea. The goal is to keep it alive and usable in Build 42 with a smaller, focused maintenance pass.
 
-If the original author reaches out and asks for this derivative fix pack to be taken down, I will take it down.
+If the original author reaches out and asks for this derivative work to be taken down, I will take it down.
 
 [h2]Help Wanted[/h2]
 
@@ -78,10 +80,7 @@ If you want to help improve:
 [*]held/equipped presentation
 [*]textures and materials
 [*]variant-specific visual detail
+[*]translations
 [/list]
 
 please reach out.
-
-[h2]Summary[/h2]
-
-If you liked the original wheelbarrow mod and just want it working cleanly in Build 42, this is that mod's practical continuation.

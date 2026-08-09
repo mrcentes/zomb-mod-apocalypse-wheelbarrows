@@ -42,7 +42,7 @@ This preserves the core fantasy of a wheelbarrow helping you move heavy stuff wi
   - `Reinforced`
   - `Metal`
 - Added per-variant world models, held models, icons, and textures.
-- Added per-variant leverage settings.
+- Added per-variant leverage settings for single-player and multiplayer servers.
 - Added Build 42 JSON-based localization support.
 - Added a shared logger for clearer diagnostics.
 
@@ -57,7 +57,7 @@ This preserves the core fantasy of a wheelbarrow helping you move heavy stuff wi
 
 ## Usage
 
-The mod exposes three separate leverage settings in Mod Options:
+The mod exposes three separate leverage settings:
 
 - `Wooden Wheelbarrow Advantage`
 - `Reinforced Wheelbarrow Advantage`
@@ -73,6 +73,15 @@ Default values:
 
 Higher values mean more mechanical advantage.
 
+Single-player:
+
+- set these through the save's sandbox settings
+
+Multiplayer:
+
+- set these through the server sandbox settings
+- the server values are authoritative for all players
+
 ## Recipes
 
 Current best-guess progression:
@@ -87,9 +96,10 @@ The recipe balance is intentionally provisional and may still evolve.
 
 Build 42 localization support now lives here:
 
-- `mods/Wheelbarrow_from_Hydrocraft/42/media/lua/shared/Translate/EN/Items_EN.json`
-- `mods/Wheelbarrow_from_Hydrocraft/42/media/lua/shared/Translate/EN/Recipes_EN.json`
-- `mods/Wheelbarrow_from_Hydrocraft/42/media/lua/shared/Translate/EN/UI_EN.json`
+- `mods/ApocalypseWheelbarrows/42/media/lua/shared/Translate/EN/ItemName.json`
+- `mods/ApocalypseWheelbarrows/42/media/lua/shared/Translate/EN/Recipes.json`
+- `mods/ApocalypseWheelbarrows/42/media/lua/shared/Translate/EN/IG_UI.json`
+- `mods/ApocalypseWheelbarrows/42/media/lua/shared/translate/en/sandbox.json`
 
 Current localized content includes:
 
@@ -137,5 +147,5 @@ please reach out or contribute. Better models and better texture work would make
 
 - This mod is now structured as a Build 42-only package.
 - The logger lives at:
-  `mods/Wheelbarrow_from_Hydrocraft/42/media/lua/shared/Wheelbarrow/WheelbarrowLogger.lua`
+  `mods/ApocalypseWheelbarrows/42/media/lua/shared/Wheelbarrow/WheelbarrowLogger.lua`
 - Some recipe/material choices are still pragmatic placeholders chosen to get the three variants working cleanly in Build 42.
