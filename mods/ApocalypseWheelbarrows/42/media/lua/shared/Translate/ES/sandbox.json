@@ -1,0 +1,9 @@
+{
+  "Sandbox_ApocalypseWheelbarrows": "Apocalypse Wheelbarrows",
+  "Sandbox_ApocalypseWheelbarrows_WoodAdvantage": "Wooden Wheelbarrow Advantage",
+  "Sandbox_ApocalypseWheelbarrows_WoodAdvantage_tooltip": "Sets the leverage multiplier for the wooden wheelbarrow. Higher values reduce carried item weight more aggressively.",
+  "Sandbox_ApocalypseWheelbarrows_ReinforcedAdvantage": "Reinforced Wheelbarrow Advantage",
+  "Sandbox_ApocalypseWheelbarrows_ReinforcedAdvantage_tooltip": "Sets the leverage multiplier for the reinforced wheelbarrow. Higher values reduce carried item weight more aggressively.",
+  "Sandbox_ApocalypseWheelbarrows_MetalAdvantage": "Metal Wheelbarrow Advantage",
+  "Sandbox_ApocalypseWheelbarrows_MetalAdvantage_tooltip": "Sets the leverage multiplier for the metal wheelbarrow. Higher values reduce carried item weight more aggressively."
+}

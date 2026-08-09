@@ -1,6 +1,6 @@
 VERSION = 1,
 
-option ApocalypseWheelbarrows.WoodAdvantage
+option ApocalypseWheelbarrows.A01WoodAdvantage
 {
     type = integer,
     min = 1,
@@ -10,7 +10,37 @@ option ApocalypseWheelbarrows.WoodAdvantage
     translation = ApocalypseWheelbarrows_WoodAdvantage,
 }
 
-option ApocalypseWheelbarrows.ReinforcedAdvantage
+option ApocalypseWheelbarrows.A02WoodRecipeWoodwork
+{
+    type = integer,
+    min = 0,
+    max = 10,
+    default = 2,
+    page = ApocalypseWheelbarrows,
+    translation = ApocalypseWheelbarrows_WoodRecipeWoodwork,
+}
+
+option ApocalypseWheelbarrows.A03WoodRecipeMechanics
+{
+    type = integer,
+    min = 0,
+    max = 10,
+    default = 0,
+    page = ApocalypseWheelbarrows,
+    translation = ApocalypseWheelbarrows_WoodRecipeMechanics,
+}
+
+option ApocalypseWheelbarrows.A04WoodRecipeMetalWelding
+{
+    type = integer,
+    min = 0,
+    max = 10,
+    default = 0,
+    page = ApocalypseWheelbarrows,
+    translation = ApocalypseWheelbarrows_WoodRecipeMetalWelding,
+}
+
+option ApocalypseWheelbarrows.B01ReinforcedAdvantage
 {
     type = integer,
     min = 1,
@@ -20,7 +50,37 @@ option ApocalypseWheelbarrows.ReinforcedAdvantage
     translation = ApocalypseWheelbarrows_ReinforcedAdvantage,
 }
 
-option ApocalypseWheelbarrows.MetalAdvantage
+option ApocalypseWheelbarrows.B02ReinforcedRecipeWoodwork
+{
+    type = integer,
+    min = 0,
+    max = 10,
+    default = 4,
+    page = ApocalypseWheelbarrows,
+    translation = ApocalypseWheelbarrows_ReinforcedRecipeWoodwork,
+}
+
+option ApocalypseWheelbarrows.B03ReinforcedRecipeMechanics
+{
+    type = integer,
+    min = 0,
+    max = 10,
+    default = 2,
+    page = ApocalypseWheelbarrows,
+    translation = ApocalypseWheelbarrows_ReinforcedRecipeMechanics,
+}
+
+option ApocalypseWheelbarrows.B04ReinforcedRecipeMetalWelding
+{
+    type = integer,
+    min = 0,
+    max = 10,
+    default = 0,
+    page = ApocalypseWheelbarrows,
+    translation = ApocalypseWheelbarrows_ReinforcedRecipeMetalWelding,
+}
+
+option ApocalypseWheelbarrows.C01MetalAdvantage
 {
     type = integer,
     min = 1,
@@ -28,4 +88,34 @@ option ApocalypseWheelbarrows.MetalAdvantage
     default = 8,
     page = ApocalypseWheelbarrows,
     translation = ApocalypseWheelbarrows_MetalAdvantage,
+}
+
+option ApocalypseWheelbarrows.C02MetalRecipeMechanics
+{
+    type = integer,
+    min = 0,
+    max = 10,
+    default = 4,
+    page = ApocalypseWheelbarrows,
+    translation = ApocalypseWheelbarrows_MetalRecipeMechanics,
+}
+
+option ApocalypseWheelbarrows.C03MetalRecipeMetalWelding
+{
+    type = integer,
+    min = 0,
+    max = 10,
+    default = 4,
+    page = ApocalypseWheelbarrows,
+    translation = ApocalypseWheelbarrows_MetalRecipeMetalWelding,
+}
+
+option ApocalypseWheelbarrows.C04MetalRecipeWoodwork
+{
+    type = integer,
+    min = 0,
+    max = 10,
+    default = 0,
+    page = ApocalypseWheelbarrows,
+    translation = ApocalypseWheelbarrows_MetalRecipeWoodwork,
 }

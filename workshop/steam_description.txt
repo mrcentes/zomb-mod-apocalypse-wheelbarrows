@@ -2,6 +2,8 @@
 
 A focused Build 42.20 maintenance and enhancement pass for Wheelbarrow from Hydrocraft v2. This mod keeps the spirit of the original wheelbarrow mod intact while making it usable and stable in current Build 42 play.
 
+Both wheelbarrow leverage and the skill levels required to craft each wheelbarrow tier are configurable in sandbox settings on a single mod settings page.
+
 [h2]What This Mod Does[/h2]
 
 [list]
@@ -37,37 +39,52 @@ The result is a wheelbarrow that still feels powerful and practical, but behaves
 
 [h2]Settings[/h2]
 
+[b]In the sandbox UI, this mod uses one settings page.[/b]
+
+Build 42 custom sandbox options do not expose the same section-header support the hardcoded vanilla tabs use, so these options are grouped by name and kept in fixed order by wheelbarrow type.
+
+[b]Wooden Wheelbarrow:[/b]
 [list]
-[*]Wooden: 4x
-[*]Reinforced: 6x
-[*]Metal: 8x
+[*]Leverage default: 4x
+[*]Recipe skill default: Woodwork 2
 [/list]
 
-Higher values mean more mechanical advantage.
+[b]Reinforced Wheelbarrow:[/b]
+[list]
+[*]Leverage default: 6x
+[*]Recipe skill defaults: Woodwork 4, Mechanics 2
+[/list]
+
+[b]Metal Wheelbarrow:[/b]
+[list]
+[*]Leverage default: 8x
+[*]Recipe skill defaults: Mechanics 4, Metal Welding 4
+[/list]
+
+Higher leverage values mean more mechanical advantage.
+
+Setting any one of those required skill values to [code]0[/code] removes that specific requirement.
 
 [b]Single Player:[/b]
-Set these in the sandbox settings for your save.
+Set leverage and recipe skill requirements in the sandbox settings for your save before loading it.
 
 [b]Multiplayer:[/b]
-Set these in the server sandbox settings. The server values are authoritative for multiplayer.
+Set leverage and recipe skill requirements in the server sandbox settings. The server values are authoritative for multiplayer.
 
 [h2]Compatibility Notes[/h2]
 
 [list]
 [*]Built for [b]Project Zomboid Build 42.20[/b]
 [*]This is a [b]Build 42-only[/b] package
-[*]Mod ID: [code]ApocalypseWheelbarrows[/code]
 [/list]
+
+[h2]GitHub[/h2]
+
+Bug reports, suggestions, contributions, and further documentation live on [url=https://github.com/pculligan/zomb-mod-apocalypse-wheelbarrows]Github[/url].
 
 [h2]Credit To The Original Mod[/h2]
 
-This mod exists because the original Wheelbarrow mod is excellent.
-
-Massive credit to the original author of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676]Wheelbarrow from Hydrocraft v2[/url].
-
-The goal here is not to replace that work or take credit for the underlying idea. The goal is to keep it alive and usable in Build 42 with a smaller, focused maintenance pass.
-
-If the original author reaches out and asks for this derivative work to be taken down, I will take it down.
+This mod exists because the original Wheelbarrow mod is excellent. Massive credit to the original author of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676]Wheelbarrow from Hydrocraft v2[/url]. The goal here is not to replace that work or take credit for the underlying idea. The goal is to keep it alive and usable in Build 42 with a smaller, focused maintenance pass. If the original author reaches out and asks to take this over I will hand it off.
 
 [h2]Help Wanted[/h2]
 
@@ -83,4 +100,4 @@ If you want to help improve:
 [*]translations
 [/list]
 
-please reach out.
+Please open an issue or contribution on [url=https://github.com/pculligan/zomb-mod-apocalypse-wheelbarrows]GitHub[/url].

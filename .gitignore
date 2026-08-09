@@ -1,2 +1,5 @@
 .DS_Store
-original-wheelbarrow/
+original-wheelbarrow/*
+!original-wheelbarrow/
+!original-wheelbarrow/README.md
+workshop/ApocalypseWheelbarrows/

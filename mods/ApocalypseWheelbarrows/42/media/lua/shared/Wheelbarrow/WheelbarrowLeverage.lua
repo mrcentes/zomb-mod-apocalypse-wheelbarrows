@@ -11,15 +11,15 @@ WheelbarrowLeverage._registeredEvents = WheelbarrowLeverage._registeredEvents or
 WheelbarrowLeverage._loggedConfig = WheelbarrowLeverage._loggedConfig or false
 WheelbarrowLeverage.VARIANTS = {
     WheelbarrowWood = {
-        optionKey = "WoodAdvantage",
+        optionKey = "A01WoodAdvantage",
         defaultAdvantage = 4,
     },
     WheelbarrowMixed = {
-        optionKey = "ReinforcedAdvantage",
+        optionKey = "B01ReinforcedAdvantage",
         defaultAdvantage = 6,
     },
     WheelbarrowMetal = {
-        optionKey = "MetalAdvantage",
+        optionKey = "C01MetalAdvantage",
         defaultAdvantage = 8,
     },
 }

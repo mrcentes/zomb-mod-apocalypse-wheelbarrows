@@ -21,6 +21,8 @@ This is a focused Build 42 maintenance and enhancement pass for the wheelbarrow 
 - Mod id: `ApocalypseWheelbarrows`
 - Mod name: `Wheelbarrow from Hydrocraft v2 (b42.20 Fixed)`
 
+Both wheelbarrow leverage and the skill levels required to craft each wheelbarrow tier are configurable through sandbox settings in a single `Apocalypse Wheelbarrows` settings page.
+
 ## Why The Capacity Works Differently
 
 Build 42 appears to clamp bag-style containers in ways that make the old large-capacity wheelbarrow behavior unreliable. In local testing, the wheelbarrow could show a higher number briefly, but still behave like it had a much smaller effective limit. There is also a hard `50` bag-side cap in the current item script setup that matches the Build 42 behavior we observed.
@@ -55,27 +57,47 @@ This preserves the core fantasy of a wheelbarrow helping you move heavy stuff wi
 - `Metal Wheelbarrow`
   highest-tier version
 
-## Usage
+## Settings
 
-The mod exposes three separate leverage settings:
+In the sandbox UI, the mod uses one `Apocalypse Wheelbarrows` settings page. Because Build 42 custom sandbox options do not expose the same section-header support the hardcoded vanilla tabs use, the settings are grouped by name and kept in a fixed order by wheelbarrow type.
+
+The page is ordered as:
+
+- one leverage setting
+- the recipe skill requirement settings for that wheelbarrow tier
+
+### Wooden Wheelbarrow
 
 - `Wooden Wheelbarrow Advantage`
+  Default: `4`
+- `Wooden Wheelbarrow Woodwork`
+  Default: `Woodwork 2`
+
+### Reinforced Wheelbarrow
+
 - `Reinforced Wheelbarrow Advantage`
+  Default: `6`
+- `Reinforced Wheelbarrow Woodwork`
+  Default: `Woodwork 4`
+- `Reinforced Wheelbarrow Mechanics`
+  Default: `Mechanics 2`
+
+### Metal Wheelbarrow
+
 - `Metal Wheelbarrow Advantage`
+  Default: `8`
+- `Metal Wheelbarrow Mechanics`
+  Default: `Mechanics 4`
+- `Metal Wheelbarrow Metal Welding`
+  Default: `Metal Welding 4`
 
-These settings control how much item weight is reduced while contents are inside each wheelbarrow type.
+Higher leverage values mean more mechanical advantage.
 
-Default values:
-
-- Wooden: `4`
-- Reinforced: `6`
-- Metal: `8`
-
-Higher values mean more mechanical advantage.
+Setting a recipe skill requirement to `0` removes that specific requirement entirely.
 
 Single-player:
 
-- set these through the save's sandbox settings
+- set these through the save's sandbox settings before loading the save
 
 Multiplayer:
 
