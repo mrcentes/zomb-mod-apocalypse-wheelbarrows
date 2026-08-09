@@ -1,0 +1,141 @@
+# Wheelbarrow Build 42
+
+Confirmed on 2026-08-09.
+
+## Credit
+
+This mod exists because the original Wheelbarrow mod is great.
+
+We genuinely love the original mod's idea, feel, and utility. The goal here is not to replace it with something different, but to keep it alive and usable in Build 42 while staying as respectful as possible to the original work.
+
+Massive credit to the original author:
+
+- Steam Workshop: [https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676](https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676)
+
+If the original author reaches out and asks for this derivative fix pack or repackage to be taken down, it will be taken down.
+
+## What This Is
+
+This is a focused Build 42 maintenance and enhancement pass for the wheelbarrow mod, with a stable local mod id:
+
+- Mod id: `ApocalypseWheelbarrows`
+- Mod name: `Wheelbarrow from Hydrocraft v2 (b42.20 Fixed)`
+
+## Why The Capacity Works Differently
+
+Build 42 appears to clamp bag-style containers in ways that make the old large-capacity wheelbarrow behavior unreliable. In local testing, the wheelbarrow could show a higher number briefly, but still behave like it had a much smaller effective limit. There is also a hard `50` bag-side cap in the current item script setup that matches the Build 42 behavior we observed.
+
+Instead of fighting that directly, this mod now uses a leverage approach:
+
+- the wheelbarrow item itself remains a normal container
+- items placed into it have their live weight reduced while inside it
+- when items leave the wheelbarrow, their original weight is restored
+- the original per-item weight metadata is cleared when it is no longer needed
+
+This preserves the core fantasy of a wheelbarrow helping you move heavy stuff without pretending the Build 42 container cap is gone.
+
+## Features
+
+- Fixed the equipped-drop crash path for wheelbarrows in Build 42.
+- Added three wheelbarrow variants:
+  - `Wooden`
+  - `Reinforced`
+  - `Metal`
+- Added per-variant world models, held models, icons, and textures.
+- Added per-variant leverage settings.
+- Added Build 42 JSON-based localization support.
+- Added a shared logger for clearer diagnostics.
+
+## Wheelbarrow Types
+
+- `Wooden Wheelbarrow`
+  baseline version
+- `Reinforced Wheelbarrow`
+  reinforced mid-tier version
+- `Metal Wheelbarrow`
+  highest-tier version
+
+## Usage
+
+The mod exposes three separate leverage settings in Mod Options:
+
+- `Wooden Wheelbarrow Advantage`
+- `Reinforced Wheelbarrow Advantage`
+- `Metal Wheelbarrow Advantage`
+
+These settings control how much item weight is reduced while contents are inside each wheelbarrow type.
+
+Default values:
+
+- Wooden: `4`
+- Reinforced: `6`
+- Metal: `8`
+
+Higher values mean more mechanical advantage.
+
+## Recipes
+
+Current best-guess progression:
+
+- craft a `Wooden Wheelbarrow`
+- craft a `Reinforced Wheelbarrow`
+- craft a `Metal Wheelbarrow`
+
+The recipe balance is intentionally provisional and may still evolve.
+
+## Localization
+
+Build 42 localization support now lives here:
+
+- `mods/Wheelbarrow_from_Hydrocraft/42/media/lua/shared/Translate/EN/Items_EN.json`
+- `mods/Wheelbarrow_from_Hydrocraft/42/media/lua/shared/Translate/EN/Recipes_EN.json`
+- `mods/Wheelbarrow_from_Hydrocraft/42/media/lua/shared/Translate/EN/UI_EN.json`
+
+Current localized content includes:
+
+- item names
+- recipe names
+- wheelbarrow UI/context menu labels
+- wheelbarrow leverage option labels and descriptions
+
+## Confirmed Fixes
+
+### Issue 1: dropping an equipped wheelbarrow could crash
+
+- Symptom:
+  `attempted index: getActualWeight of non-table: null`
+- Cause:
+  the custom wheelbarrow drop path could route an equipped wheelbarrow into a bad vanilla drop action path
+- Remediation:
+  the custom drop action now unequips the wheelbarrow if needed, then transfers it safely to the floor
+- Status:
+  confirmed working in local Build 42 testing
+
+### Issue 2: Build 42 capacity handling
+
+- Symptom:
+  the wheelbarrow did not behave like a true high-capacity container in Build 42
+- Remediation:
+  moved to a leverage-based weight-reduction model instead of trying to force legacy raw capacity behavior
+- Status:
+  working locally and now configurable per wheelbarrow type
+
+## Art And Model Help Wanted
+
+The current three-variant setup works, but we would love help from someone who knows the Blender side of Project Zomboid modding.
+
+If you know how to improve:
+
+- wheelbarrow meshes
+- held/equipped presentation
+- textures and material polish
+- variant-specific visual detail
+
+please reach out or contribute. Better models and better texture work would make this mod substantially stronger.
+
+## Notes
+
+- This mod is now structured as a Build 42-only package.
+- The logger lives at:
+  `mods/Wheelbarrow_from_Hydrocraft/42/media/lua/shared/Wheelbarrow/WheelbarrowLogger.lua`
+- Some recipe/material choices are still pragmatic placeholders chosen to get the three variants working cleanly in Build 42.

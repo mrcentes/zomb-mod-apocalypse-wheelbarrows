@@ -1,0 +1,13 @@
+{
+    "IGUI_Wheelbarrow_Drop": "Drop",
+    "IGUI_Wheelbarrow_Push": "Push",
+    "IGUI_Wheelbarrow_PushSelected": "Push Selected",
+    "IGUI_Wheelbarrow_Options_Title": "Wheelbarrow Leverage",
+    "IGUI_Wheelbarrow_Options_Description": "Items in each wheelbarrow variant count as 1/N of their normal weight.",
+    "IGUI_Wheelbarrow_Option_wood_advantage": "Wooden Wheelbarrow Advantage",
+    "IGUI_Wheelbarrow_OptionDesc_wood_advantage": "Wooden wheelbarrow leverage multiplier.",
+    "IGUI_Wheelbarrow_Option_mixed_advantage": "Reinforced Wheelbarrow Advantage",
+    "IGUI_Wheelbarrow_OptionDesc_mixed_advantage": "Reinforced wheelbarrow leverage multiplier.",
+    "IGUI_Wheelbarrow_Option_metal_advantage": "Metal Wheelbarrow Advantage",
+    "IGUI_Wheelbarrow_OptionDesc_metal_advantage": "Metal wheelbarrow leverage multiplier."
+}

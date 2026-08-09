@@ -1,35 +1,26 @@
 require "TimedActions/ISInventoryTransferUtil"
 require "TimedActions/ISUnequipAction"
-require "Wheelbarrow/WheelbarrowSettings"
+require "Wheelbarrow/WheelbarrowLeverage"
 
 PFGMenu ={};
 PFGMenu.typesTable = {
-	["HCWoodenwheelbarrow"]=true
+	["WheelbarrowWood"]=true,
+	["WheelbarrowMixed"]=true,
+	["WheelbarrowMetal"]=true,
 }
-PFGMenu.capacityOverride = WheelbarrowSettings.getCapacity()
 
-local scriptItem = ScriptManager.instance:getItem("Wheelbarrow.HCWoodenwheelbarrow")
-if scriptItem then
-	scriptItem:DoParam("Capacity = " .. tostring(WheelbarrowSettings.getRawCapacity(scriptItem)))
-end
-
-PFGMenu.ensureWheelbarrowCapacity = function(item)
-	if not item or not item.getType or not PFGMenu.typesTable[item:getType()] then
-		return
+PFGMenu.getTextOrDefault = function(key, fallback)
+	local translated = getText and getText(key)
+	if translated and translated ~= key then
+		return translated
 	end
-
-	local itemContainer = item:getItemContainer()
-	if itemContainer then
-		itemContainer:setCapacity(WheelbarrowSettings.getRawCapacity(item))
-	end
+	return fallback
 end
 
 PFGMenu.dropItemSafely = function(playerObj, item)
 	if not playerObj or not item or item:isFavorite() then
 		return
 	end
-
-	PFGMenu.ensureWheelbarrowCapacity(item)
 
 	local srcContainer = item:getContainer()
 	local floorContainer = ISInventoryPage.GetFloorContainer(playerObj:getPlayerNum())
@@ -54,11 +45,11 @@ end
 
 PFGMenu.addWorldContext = function(player, context, worldobjects, test)	
 	local pzPlayer = getSpecificPlayer(player)
+	WheelbarrowLeverage.repairLocalPlayer(player)
 	-- fast drop
 	local current_weapon = pzPlayer:getPrimaryHandItem()
 	if current_weapon~=nil and PFGMenu.typesTable[current_weapon:getType()] then
-		PFGMenu.ensureWheelbarrowCapacity(current_weapon)
-		context:addOption("Drop " .. current_weapon:getDisplayName(),worldobjects,PFGMenu.dropCart,{current_weapon},player)
+		context:addOption(PFGMenu.getTextOrDefault("IGUI_Wheelbarrow_Drop", "Drop") .. " " .. current_weapon:getDisplayName(),worldobjects,PFGMenu.dropCart,{current_weapon},player)
 		return
 	end
 	
@@ -93,10 +84,10 @@ PFGMenu.addWorldContext = function(player, context, worldobjects, test)
 	for item, _ in pairs(itemsSet) do
 		local curr_cart = item.getItem and item:getItem()
 		if curr_cart then
-			PFGMenu.ensureWheelbarrowCapacity(curr_cart)
+			WheelbarrowLeverage.repairItem(curr_cart)
 			local curr_type = curr_cart.getType and curr_cart:getType()
 			if PFGMenu.typesTable[curr_type] then
-				local label = "Push " .. curr_cart:getDisplayName()
+				local label = PFGMenu.getTextOrDefault("IGUI_Wheelbarrow_Push", "Push") .. " " .. curr_cart:getDisplayName()
 				local selectOption = context:addOption(label,worldobjects,PFGMenu.equipCart,player,item)
 			end
 		end
@@ -136,7 +127,7 @@ end
 --	if box.options[box.selected] ~= nil then	
 --		local newCapacity = tonumber(box.options[box.selected])
 --		target:setCapacity(newCapacity)
---		scriptItem = ScriptManager.instance:getItem("Wheelbarrow.HCWoodenwheelbarrow")
+--		scriptItem = ScriptManager.instance:getItem("Wheelbarrow.WheelbarrowWood")
 --		scriptItem:DoParam("Capacity = "..newCapacity)
 --	end
 --end
@@ -209,6 +200,7 @@ end
 PFGMenu.addInventoryContext = function(player,context,inventoryObjects)
 	local pzPlayer = getSpecificPlayer(player)
 	local playerInventory = pzPlayer:getInventory()
+	WheelbarrowLeverage.repairLocalPlayer(player)
 
 	
 	-- work on lateral containers hotbar slots
@@ -219,7 +211,7 @@ PFGMenu.addInventoryContext = function(player,context,inventoryObjects)
 	if isCartOnProximitySlot then
 		local items = ISInventoryPane.getActualItems(inventoryObjects)
 		if playerInventory:contains(items[1]) then return end
-		context:addOption("Push Selected", items[1], PFGMenu.pushCart, player, items[1])
+		context:addOption(PFGMenu.getTextOrDefault("IGUI_Wheelbarrow_PushSelected", "Push Selected"), items[1], PFGMenu.pushCart, player, items[1])
 		return
 	end
 	
@@ -236,7 +228,7 @@ PFGMenu.addInventoryContext = function(player,context,inventoryObjects)
                 
                 local curr_type = itemClicked:getType()
 				if PFGMenu.typesTable[curr_type] then
-					local selectOption = context:addOption("Push " .. v.items[i]:getDisplayName() ,v.items,PFGMenu.pushCart,player,v.items[i],v)
+					local selectOption = context:addOption(PFGMenu.getTextOrDefault("IGUI_Wheelbarrow_Push", "Push") .. " " .. v.items[i]:getDisplayName() ,v.items,PFGMenu.pushCart,player,v.items[i],v)
 				end
             end
 		end
@@ -248,7 +240,6 @@ PFGMenu.pushCart = function(worldobjects,player,item,container)
 	local pzPlayer = getSpecificPlayer(player)
 	--if on floor
 	local item_world = item:getWorldItem()
-	PFGMenu.ensureWheelbarrowCapacity(item)
 
 	if item_world then
 		PFGMenu.equipCart(worldobjects,player,item_world)	
