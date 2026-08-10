@@ -17,7 +17,7 @@ We genuinely love the original mod's idea, feel, and utility. The goal here is n
 
 Massive credit to the [original author](https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676).
 
-If the original author reaches out and asks for this derivative fix pack or repackage to be taken down, it will be taken down.
+If the original author reaches out and asks for this to be taken down, it will be taken down.
 
 ## Why The Capacity Works Differently
 
