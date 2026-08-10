@@ -2,10 +2,12 @@
 
 This is a focused Build 42 maintenance and enhancement pass for the wheelbarrow mod, with a stable local mod id:
 
+- Workshop ID: `3780565327`
 - Mod id: `ApocalypseWheelbarrows`
-- Mod name: `Wheelbarrow from Hydrocraft v2 (b42.20 Fixed)`
+- Mod name: `Apocalypse Wheelbarrows`
+- Available: [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3780565327)
 
-Both wheelbarrow leverage and the skill levels required to craft each wheelbarrow tier are configurable through sandbox settings in a single `Apocalypse Wheelbarrows` settings page.
+Both weight leverage and the skill levels required to craft each wheelbarrow tier are configurable through sandbox settings in a single `Apocalypse Wheelbarrows` settings page.
 
 ## What This Is
 
@@ -13,9 +15,7 @@ This mod exists because the original Wheelbarrow mod is great.
 
 We genuinely love the original mod's idea, feel, and utility. The goal here is not to replace it with something different, but to keep it alive and usable in Build 42 while staying as respectful as possible to the original work.
 
-Massive credit to the original author:
-
-- Steam Workshop: [https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676](https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676)
+Massive credit to the - [original author](https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676).
 
 If the original author reaches out and asks for this derivative fix pack or repackage to be taken down, it will be taken down.
 
