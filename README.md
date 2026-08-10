@@ -1,8 +1,13 @@
 # Wheelbarrow Build 42
 
-Confirmed on 2026-08-09.
+This is a focused Build 42 maintenance and enhancement pass for the wheelbarrow mod, with a stable local mod id:
 
-## Credit
+- Mod id: `ApocalypseWheelbarrows`
+- Mod name: `Wheelbarrow from Hydrocraft v2 (b42.20 Fixed)`
+
+Both wheelbarrow leverage and the skill levels required to craft each wheelbarrow tier are configurable through sandbox settings in a single `Apocalypse Wheelbarrows` settings page.
+
+## What This Is
 
 This mod exists because the original Wheelbarrow mod is great.
 
@@ -13,15 +18,6 @@ Massive credit to the original author:
 - Steam Workshop: [https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676](https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676)
 
 If the original author reaches out and asks for this derivative fix pack or repackage to be taken down, it will be taken down.
-
-## What This Is
-
-This is a focused Build 42 maintenance and enhancement pass for the wheelbarrow mod, with a stable local mod id:
-
-- Mod id: `ApocalypseWheelbarrows`
-- Mod name: `Wheelbarrow from Hydrocraft v2 (b42.20 Fixed)`
-
-Both wheelbarrow leverage and the skill levels required to craft each wheelbarrow tier are configurable through sandbox settings in a single `Apocalypse Wheelbarrows` settings page.
 
 ## Why The Capacity Works Differently
 
@@ -169,5 +165,5 @@ please reach out or contribute. Better models and better texture work would make
 
 - This mod is now structured as a Build 42-only package.
 - The logger lives at:
-  `mods/ApocalypseWheelbarrows/42/media/lua/shared/Wheelbarrow/WheelbarrowLogger.lua`
+  `mods/ApocalypseWheelbarrows/42/media/lua/shared/Wheelbarrow/WheelbarrowLogger.lua` and can be used to change the logLevel.
 - Some recipe/material choices are still pragmatic placeholders chosen to get the three variants working cleanly in Build 42.
