@@ -15,7 +15,7 @@ This mod exists because the original Wheelbarrow mod is great.
 
 We genuinely love the original mod's idea, feel, and utility. The goal here is not to replace it with something different, but to keep it alive and usable in Build 42 while staying as respectful as possible to the original work.
 
-Massive credit to the - [original author](https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676).
+Massive credit to the [original author](https://steamcommunity.com/sharedfiles/filedetails/?id=2926995676).
 
 If the original author reaches out and asks for this derivative fix pack or repackage to be taken down, it will be taken down.
 
