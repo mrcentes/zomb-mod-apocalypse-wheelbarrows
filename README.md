@@ -100,16 +100,6 @@ Multiplayer:
 - set these through the server sandbox settings
 - the server values are authoritative for all players
 
-## Recipes
-
-Current best-guess progression:
-
-- craft a `Wooden Wheelbarrow`
-- craft a `Reinforced Wheelbarrow`
-- craft a `Metal Wheelbarrow`
-
-The recipe balance is intentionally provisional and may still evolve.
-
 ## Localization
 
 Build 42 localization support now lives here:
