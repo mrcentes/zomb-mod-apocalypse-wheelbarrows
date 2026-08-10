@@ -12,21 +12,21 @@ WheelbarrowRecipeSettings._hasResolvedAnyRecipe = WheelbarrowRecipeSettings._has
 WheelbarrowRecipeSettings.RECIPES = {
     craft_wheelbarrow_wood = {
         outputItem = "Wheelbarrow.WheelbarrowWood",
-        { perk = "Woodwork", optionKey = "A02WoodRecipeWoodwork", defaultLevel = 2 },
-        { perk = "Mechanics", optionKey = "A03WoodRecipeMechanics", defaultLevel = 0 },
-        { perk = "MetalWelding", optionKey = "A04WoodRecipeMetalWelding", defaultLevel = 0 },
+        { perk = "Woodwork", optionKey = "WoodRecipeWoodwork", defaultLevel = 2 },
+        { perk = "Mechanics", optionKey = "WoodRecipeMechanics", defaultLevel = 0 },
+        { perk = "MetalWelding", optionKey = "WoodRecipeMetalWelding", defaultLevel = 0 },
     },
     craft_wheelbarrow_mixed = {
         outputItem = "Wheelbarrow.WheelbarrowMixed",
-        { perk = "Woodwork", optionKey = "B02ReinforcedRecipeWoodwork", defaultLevel = 4 },
-        { perk = "Mechanics", optionKey = "B03ReinforcedRecipeMechanics", defaultLevel = 2 },
-        { perk = "MetalWelding", optionKey = "B04ReinforcedRecipeMetalWelding", defaultLevel = 0 },
+        { perk = "Woodwork", optionKey = "ReinforcedRecipeWoodwork", defaultLevel = 4 },
+        { perk = "Mechanics", optionKey = "ReinforcedRecipeMechanics", defaultLevel = 2 },
+        { perk = "MetalWelding", optionKey = "ReinforcedRecipeMetalWelding", defaultLevel = 0 },
     },
     craft_wheelbarrow_metal = {
         outputItem = "Wheelbarrow.WheelbarrowMetal",
-        { perk = "Woodwork", optionKey = "C04MetalRecipeWoodwork", defaultLevel = 0 },
-        { perk = "Mechanics", optionKey = "C02MetalRecipeMechanics", defaultLevel = 4 },
-        { perk = "MetalWelding", optionKey = "C03MetalRecipeMetalWelding", defaultLevel = 4 },
+        { perk = "Woodwork", optionKey = "MetalRecipeWoodwork", defaultLevel = 0 },
+        { perk = "Mechanics", optionKey = "MetalRecipeMechanics", defaultLevel = 4 },
+        { perk = "MetalWelding", optionKey = "MetalRecipeMetalWelding", defaultLevel = 4 },
     },
 }
 

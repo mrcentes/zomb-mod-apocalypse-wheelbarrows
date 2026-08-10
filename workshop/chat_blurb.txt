@@ -1,0 +1,9 @@
+[b]I love this mod[/b] but on Build 42.20+ it just was not stable/usable enough for our games (couldn't drop, weight was odd) so I put together [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3780565327]Apocalypse Wheelbarrows[/url].
+
+- Fixes the equipped-drop crash path in Build 42.20
+- Adds three wheelbarrow variants: Wooden, Reinforced, and Metal
+- Adds per-variant leverage and skill settings for both single-player and multiplayer servers
+- Adds Build 42 JSON localization support
+- Keeps the wheelbarrow useful without fighting the current Build 42 container cap behavior
+
+It keeps the spirit of this original while making wheelbarrows actually work in both SP and MP. I'll hand my mod off if this author wants to take it over. Until then it will be maintained.

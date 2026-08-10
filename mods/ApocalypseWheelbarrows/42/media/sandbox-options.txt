@@ -1,6 +1,6 @@
 VERSION = 1,
 
-option ApocalypseWheelbarrows.A01WoodAdvantage
+option ApocalypseWheelbarrows.WoodAdvantage
 {
     type = integer,
     min = 1,
@@ -10,7 +10,7 @@ option ApocalypseWheelbarrows.A01WoodAdvantage
     translation = ApocalypseWheelbarrows_WoodAdvantage,
 }
 
-option ApocalypseWheelbarrows.A02WoodRecipeWoodwork
+option ApocalypseWheelbarrows.WoodRecipeWoodwork
 {
     type = integer,
     min = 0,
@@ -20,7 +20,7 @@ option ApocalypseWheelbarrows.A02WoodRecipeWoodwork
     translation = ApocalypseWheelbarrows_WoodRecipeWoodwork,
 }
 
-option ApocalypseWheelbarrows.A03WoodRecipeMechanics
+option ApocalypseWheelbarrows.WoodRecipeMechanics
 {
     type = integer,
     min = 0,
@@ -30,7 +30,7 @@ option ApocalypseWheelbarrows.A03WoodRecipeMechanics
     translation = ApocalypseWheelbarrows_WoodRecipeMechanics,
 }
 
-option ApocalypseWheelbarrows.A04WoodRecipeMetalWelding
+option ApocalypseWheelbarrows.WoodRecipeMetalWelding
 {
     type = integer,
     min = 0,
@@ -40,7 +40,7 @@ option ApocalypseWheelbarrows.A04WoodRecipeMetalWelding
     translation = ApocalypseWheelbarrows_WoodRecipeMetalWelding,
 }
 
-option ApocalypseWheelbarrows.B01ReinforcedAdvantage
+option ApocalypseWheelbarrows.ReinforcedAdvantage
 {
     type = integer,
     min = 1,
@@ -50,7 +50,7 @@ option ApocalypseWheelbarrows.B01ReinforcedAdvantage
     translation = ApocalypseWheelbarrows_ReinforcedAdvantage,
 }
 
-option ApocalypseWheelbarrows.B02ReinforcedRecipeWoodwork
+option ApocalypseWheelbarrows.ReinforcedRecipeWoodwork
 {
     type = integer,
     min = 0,
@@ -60,7 +60,7 @@ option ApocalypseWheelbarrows.B02ReinforcedRecipeWoodwork
     translation = ApocalypseWheelbarrows_ReinforcedRecipeWoodwork,
 }
 
-option ApocalypseWheelbarrows.B03ReinforcedRecipeMechanics
+option ApocalypseWheelbarrows.ReinforcedRecipeMechanics
 {
     type = integer,
     min = 0,
@@ -70,7 +70,7 @@ option ApocalypseWheelbarrows.B03ReinforcedRecipeMechanics
     translation = ApocalypseWheelbarrows_ReinforcedRecipeMechanics,
 }
 
-option ApocalypseWheelbarrows.B04ReinforcedRecipeMetalWelding
+option ApocalypseWheelbarrows.ReinforcedRecipeMetalWelding
 {
     type = integer,
     min = 0,
@@ -80,7 +80,7 @@ option ApocalypseWheelbarrows.B04ReinforcedRecipeMetalWelding
     translation = ApocalypseWheelbarrows_ReinforcedRecipeMetalWelding,
 }
 
-option ApocalypseWheelbarrows.C01MetalAdvantage
+option ApocalypseWheelbarrows.MetalAdvantage
 {
     type = integer,
     min = 1,
@@ -90,7 +90,7 @@ option ApocalypseWheelbarrows.C01MetalAdvantage
     translation = ApocalypseWheelbarrows_MetalAdvantage,
 }
 
-option ApocalypseWheelbarrows.C02MetalRecipeMechanics
+option ApocalypseWheelbarrows.MetalRecipeMechanics
 {
     type = integer,
     min = 0,
@@ -100,7 +100,7 @@ option ApocalypseWheelbarrows.C02MetalRecipeMechanics
     translation = ApocalypseWheelbarrows_MetalRecipeMechanics,
 }
 
-option ApocalypseWheelbarrows.C03MetalRecipeMetalWelding
+option ApocalypseWheelbarrows.MetalRecipeMetalWelding
 {
     type = integer,
     min = 0,
@@ -110,7 +110,7 @@ option ApocalypseWheelbarrows.C03MetalRecipeMetalWelding
     translation = ApocalypseWheelbarrows_MetalRecipeMetalWelding,
 }
 
-option ApocalypseWheelbarrows.C04MetalRecipeWoodwork
+option ApocalypseWheelbarrows.MetalRecipeWoodwork
 {
     type = integer,
     min = 0,

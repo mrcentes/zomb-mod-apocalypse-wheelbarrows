@@ -10,7 +10,7 @@ Both wheelbarrow leverage and the skill levels required to craft each wheelbarro
 [*]Fixes the equipped-drop crash path in Build 42
 [*]Adds three wheelbarrow variants: Wooden, Reinforced, and Metal
 [*]Adds per-variant leverage settings for both single-player and multiplayer servers
-[*]Adds Build 42 JSON localization support (contribute here)
+[*]Adds Build 42 JSON localization support
 [*]Keeps the wheelbarrow useful without fighting the current Build 42 container cap behavior
 [/list]
 
@@ -63,7 +63,7 @@ Build 42 custom sandbox options do not expose the same section-header support th
 
 Higher leverage values mean more mechanical advantage.
 
-Setting any one of those required skill values to [code]0[/code] removes that specific requirement.
+Setting any one of those required skill values to 0 (zero) removes that specific requirement.
 
 [b]Single Player:[/b]
 Set leverage and recipe skill requirements in the sandbox settings for your save before loading it.
@@ -74,7 +74,7 @@ Set leverage and recipe skill requirements in the server sandbox settings. The s
 [h2]Compatibility Notes[/h2]
 
 [list]
-[*]Built for [b]Project Zomboid Build 42.20[/b]
+[*]Built for [b]Project Zomboid Build 42.20+[/b]
 [*]This is a [b]Build 42-only[/b] package
 [/list]
 

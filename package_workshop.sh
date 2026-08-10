@@ -14,8 +14,9 @@ if [ ! -d "$MOD_DIR" ]; then
     exit 1
 fi
 
+mkdir -p "$OUTPUT_DIR"
+find "$OUTPUT_DIR" -mindepth 1 -maxdepth 1 ! -name 'workshop.txt' -exec rm -rf {} +
 mkdir -p "$CONTENT_DIR"
-rm -rf "$CONTENT_DIR/42"
 cp -R "$MOD_DIR" "$CONTENT_DIR/"
 
 if [ -f "$PREVIEW_SRC" ]; then
