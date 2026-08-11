@@ -1,4 +1,7 @@
 .DS_Store
+*.log
+shared
+testing/tmp/
 original-wheelbarrow/*
 !original-wheelbarrow/
 !original-wheelbarrow/README.md
