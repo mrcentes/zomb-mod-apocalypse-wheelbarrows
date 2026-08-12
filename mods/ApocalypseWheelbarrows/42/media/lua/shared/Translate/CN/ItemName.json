@@ -1,8 +1,8 @@
 {
-    "Wheelbarrow.WheelbarrowWood": "Wooden Wheelbarrow",
-    "Wheelbarrow.WheelbarrowWood_Tooltip": "A wooden wheelbarrow built for hauling heavy loads with leverage.",
-    "Wheelbarrow.WheelbarrowMixed": "Reinforced Wheelbarrow",
-    "Wheelbarrow.WheelbarrowMixed_Tooltip": "A reinforced wheelbarrow with stronger materials and better leverage.",
-    "Wheelbarrow.WheelbarrowMetal": "Metal Wheelbarrow",
-    "Wheelbarrow.WheelbarrowMetal_Tooltip": "A metal wheelbarrow built for the heaviest work."
+    "Wheelbarrow.WheelbarrowWood": "木质手推车",
+    "Wheelbarrow.WheelbarrowWood_Tooltip": "一辆专为杠杆省力来搬运重物的木质手推车。",
+    "Wheelbarrow.WheelbarrowMixed": "加固手推车",
+    "Wheelbarrow.WheelbarrowMixed_Tooltip": "一辆采用更坚固的材料制造，减重效果更好的加固手推车。",
+    "Wheelbarrow.WheelbarrowMetal": "金属手推车",
+    "Wheelbarrow.WheelbarrowMetal_Tooltip": "一辆能胜任各种繁重搬运的金属手推车。"
 }

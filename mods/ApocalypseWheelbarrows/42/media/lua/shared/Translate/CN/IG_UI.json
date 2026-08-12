@@ -1,5 +1,5 @@
 {
-    "IGUI_Wheelbarrow_Drop": "Drop",
-    "IGUI_Wheelbarrow_Push": "Push",
-    "IGUI_Wheelbarrow_PushSelected": "Push Selected"
+    "IGUI_Wheelbarrow_Drop": "放下",
+    "IGUI_Wheelbarrow_Push": "推动",
+    "IGUI_Wheelbarrow_PushSelected": "推动所选"
 }
